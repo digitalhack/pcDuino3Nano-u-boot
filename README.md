@@ -50,5 +50,6 @@ sync<br>
 
 \# To initialize sdcard and write u-boot and sunxi spl to it
 
+sudo dd if=/dev/zero of=${card} bs=1M count=1<br>
 dd if=spl/sunxi-spl.bin of=${card} bs=1024 seek=8<br>
 dd if=u-boot.img of=${card} bs=1024 seek=40<br>
