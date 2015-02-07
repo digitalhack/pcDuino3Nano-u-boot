@@ -37,12 +37,12 @@ make -j2 CROSS_COMPILE=arm-linux-gnueabihf-
 \# Update with you device<br>
 card="/dev/sdb"
 
-\# Copy u-boot with spl to staging area
+\# To copy u-boot with spl to staging area
 
 mkdir -p ../output/u-boot
 cp u-boot-sunxi-with-spl.bin ../output/u-boot
 
-\# Initialize sdcard and write u-boot with spl to it
+\# To initialize sdcard and write u-boot with spl to it
 
 sudo dd if=/dev/zero of=${card} bs=1M count=1<br>
 sudo dd if=u-boot-sunxi-with-spl.bin of=${card} bs=1024 seek=8<br>
