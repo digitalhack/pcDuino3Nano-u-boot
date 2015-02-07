@@ -16,7 +16,7 @@ make -s CROSS_COMPILE=arm-linux-gnueabihf- clean
 
 make -j2 Linksprite_pcDuino3_Nano_defconfig CROSS_COMPILE=arm-linux-gnueabihf-
 
-For now apply patch at: http://lists.denx.de/pipermail/u-boot/2015-February/203845.html
+\# Until included in mainline apply patch at: http://lists.denx.de/pipermail/u-boot/2015-February/203845.html
 
 echo "CONFIG_ARMV7_BOOT_SEC_DEFAULT=y" >> .config
 echo "CONFIG_ARMV7_BOOT_SEC_DEFAULT=y" >> ./spl/.config
