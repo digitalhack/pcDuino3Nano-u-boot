@@ -6,7 +6,7 @@ Manual u-boot build Process
 mkdir staging
 cd staging/
 
-git clone https://github.com/digitalhack/pcDuino3Nano-u-boot.git
+git clone https://github.com/digitalhack/pcDuino3Nano-u-boot.git 
 git clone https://github.com/RobertCNelson/u-boot.git
 
 cd ./u-boot
