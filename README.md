@@ -6,11 +6,14 @@ Manual u-boot build Process
 mkdir staging
 cd staging/
 
+git clone https://github.com/digitalhack/pcDuino3Nano-u-boot.git
 git clone https://github.com/RobertCNelson/u-boot.git
 
-cp ../../github/lib/config/Linksprite_pcDuino3_Nano_defconfig ./configs
+cd ./u-boot
 
-cp ../../github/lib/config/sun7i-a20-pcduino3-nano.dts ./arch/arm/dts
+cp ../pcDuino3Nano-u-boot/Linksprite_pcDuino3_Nano_defconfig ./configs
+
+cp ../pcDuino3Nano-u-boot/sun7i-a20-pcduino3-nano.dts ./arch/arm/dts
 
 make -s CROSS_COMPILE=arm-linux-gnueabihf- clean
 
