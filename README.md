@@ -3,7 +3,7 @@ pcDuino3 Nano u-boot build scripts and auxiliary files
 
 Manual u-boot build Process
 ---------------------------
-mkdir staging
+mkdir staging<br>
 cd staging/
 
 git clone https://github.com/digitalhack/pcDuino3Nano-u-boot.git<br>
@@ -30,11 +30,11 @@ echo "CONFIG_OLD_SUNXI_KERNEL_COMPAT=y" >> ./spl/.config<br>
 
 make -j2 CROSS_COMPILE=arm-linux-gnueabihf-
 
-\# u-boot with is in u-boot-sunxi-with-spl.bin
-\# u-boot is in u-boot.img
-\# sunxi-spl.bin is in ./spl/sunxi-spl.bin
+\# u-boot with is in u-boot-sunxi-with-spl.bin <br>
+\# u-boot is in u-boot.img<br>
+\# sunxi-spl.bin is in ./spl/sunxi-spl.bin<br>
 
-\# Update with you device
+\# Update with you device<br>
 card="/dev/sdb"
 
 \# Copy u-boot with spl to staging area
@@ -44,11 +44,11 @@ cp u-boot-sunxi-with-spl.bin ../output/u-boot
 
 \# Initialize sdcard and write u-boot with spl to it
 
-sudo dd if=/dev/zero of=${card} bs=1M count=1
-sudo dd if=u-boot-sunxi-with-spl.bin of=${card} bs=1024 seek=8
-sync
+sudo dd if=/dev/zero of=${card} bs=1M count=1<br>
+sudo dd if=u-boot-sunxi-with-spl.bin of=${card} bs=1024 seek=8<br>
+sync<br>
 
 \# To initialize sdcard and write u-boot and sunxi spl to it
 
-dd if=spl/sunxi-spl.bin of=${card} bs=1024 seek=8
-dd if=u-boot.img of=${card} bs=1024 seek=40
+dd if=spl/sunxi-spl.bin of=${card} bs=1024 seek=8<br>
+dd if=u-boot.img of=${card} bs=1024 seek=40<br>
