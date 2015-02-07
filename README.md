@@ -6,8 +6,8 @@ Manual u-boot build Process
 mkdir staging
 cd staging/
 
-git clone https://github.com/digitalhack/pcDuino3Nano-u-boot.git 
-git clone https://github.com/RobertCNelson/u-boot.git
+git clone https://github.com/digitalhack/pcDuino3Nano-u-boot.git<br>
+git clone https://github.com/RobertCNelson/u-boot.git<br>
 
 cd ./u-boot
 
@@ -21,10 +21,12 @@ make -j2 Linksprite_pcDuino3_Nano_defconfig CROSS_COMPILE=arm-linux-gnueabihf-
 
 \# Until included in mainline apply patch at: http://lists.denx.de/pipermail/u-boot/2015-February/203845.html
 
-echo "CONFIG_ARMV7_BOOT_SEC_DEFAULT=y" >> .config
-echo "CONFIG_ARMV7_BOOT_SEC_DEFAULT=y" >> ./spl/.config
-echo "CONFIG_OLD_SUNXI_KERNEL_COMPAT=y" >> .config
-echo "CONFIG_OLD_SUNXI_KERNEL_COMPAT=y" >> ./spl/.config
+
+echo "CONFIG_ARMV7_BOOT_SEC_DEFAULT=y" >> .config<br>
+echo "CONFIG_ARMV7_BOOT_SEC_DEFAULT=y" >> ./spl/.config<br>
+echo "CONFIG_OLD_SUNXI_KERNEL_COMPAT=y" >> .config<br>
+echo "CONFIG_OLD_SUNXI_KERNEL_COMPAT=y" >> ./spl/.config<br>
+
 
 make -j2 CROSS_COMPILE=arm-linux-gnueabihf-
 
