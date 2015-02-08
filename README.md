@@ -19,7 +19,8 @@ make -s CROSS_COMPILE=arm-linux-gnueabihf- clean
 
 make -j2 Linksprite_pcDuino3_Nano_defconfig CROSS_COMPILE=arm-linux-gnueabihf-
 
-\# Until included in mainline apply patch at: http://lists.denx.de/pipermail/u-boot/2015-February/203845.html
+\# Until included in mainline apply patch at:  
+\# &nbsp;&nbsp;&nbsp;&nbsp;http://lists.denx.de/pipermail/u-boot/2015-February/203845.html
 
 
 echo "CONFIG_ARMV7_BOOT_SEC_DEFAULT=y" >> .config  
@@ -34,13 +35,18 @@ make -j2 CROSS_COMPILE=arm-linux-gnueabihf-
 \# u-boot is in u-boot.img  
 \# sunxi-spl.bin is in ./spl/sunxi-spl.bin  
 
-\# Update with you device  
-card="/dev/sdb"
-
 \# To copy u-boot with spl to staging area
 
 mkdir -p ../output/u-boot  
-cp u-boot-sunxi-with-spl.bin ../output/u-boot
+cp u-boot-sunxi-with-spl.bin ../output/u-boot  
+cp spl/sunxi-spl.bin ../output/u-boot  
+cp u-boot.img ../output/u-boot  
+
+\# If you wish to update u-boot continue below.  I you are building a  
+\# complete sdcard continue on to digitalhack/pcDuino3Nano-kernel
+
+\# Update with you device  
+card="/dev/sdb"  
 
 \# To initialize sdcard and write u-boot with spl to it
 
