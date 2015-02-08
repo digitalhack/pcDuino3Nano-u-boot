@@ -1,5 +1,5 @@
 # pcDuino3Nano-u-boot
-pcDuino3 Nano u-boot build scripts and auxiliary files
+pcDuino3 Nano u-boot build script and auxiliary files
 
 Manual u-boot build Process
 ---------------------------
