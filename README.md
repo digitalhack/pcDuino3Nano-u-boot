@@ -3,11 +3,11 @@ pcDuino3 Nano u-boot build scripts and auxiliary files
 
 Manual u-boot build Process
 ---------------------------
-mkdir staging<br>
+mkdir staging  
 cd staging/
 
-git clone https://github.com/digitalhack/pcDuino3Nano-u-boot.git<br>
-git clone https://github.com/RobertCNelson/u-boot.git<br>
+git clone https://github.com/digitalhack/pcDuino3Nano-u-boot.git  
+git clone https://github.com/RobertCNelson/u-boot.git  
 
 cd ./u-boot
 
@@ -22,34 +22,34 @@ make -j2 Linksprite_pcDuino3_Nano_defconfig CROSS_COMPILE=arm-linux-gnueabihf-
 \# Until included in mainline apply patch at: http://lists.denx.de/pipermail/u-boot/2015-February/203845.html
 
 
-echo "CONFIG_ARMV7_BOOT_SEC_DEFAULT=y" >> .config<br>
-echo "CONFIG_ARMV7_BOOT_SEC_DEFAULT=y" >> ./spl/.config<br>
-echo "CONFIG_OLD_SUNXI_KERNEL_COMPAT=y" >> .config<br>
-echo "CONFIG_OLD_SUNXI_KERNEL_COMPAT=y" >> ./spl/.config<br>
+echo "CONFIG_ARMV7_BOOT_SEC_DEFAULT=y" >> .config  
+echo "CONFIG_ARMV7_BOOT_SEC_DEFAULT=y" >> ./spl/.config  
+echo "CONFIG_OLD_SUNXI_KERNEL_COMPAT=y" >> .config  
+echo "CONFIG_OLD_SUNXI_KERNEL_COMPAT=y" >> ./spl/.config  
 
 
 make -j2 CROSS_COMPILE=arm-linux-gnueabihf-
 
-\# u-boot with is in u-boot-sunxi-with-spl.bin <br>
-\# u-boot is in u-boot.img<br>
-\# sunxi-spl.bin is in ./spl/sunxi-spl.bin<br>
+\# u-boot with is in u-boot-sunxi-with-spl.bin   
+\# u-boot is in u-boot.img  
+\# sunxi-spl.bin is in ./spl/sunxi-spl.bin  
 
-\# Update with you device<br>
+\# Update with you device  
 card="/dev/sdb"
 
 \# To copy u-boot with spl to staging area
 
-mkdir -p ../output/u-boot
+mkdir -p ../output/u-boot  
 cp u-boot-sunxi-with-spl.bin ../output/u-boot
 
 \# To initialize sdcard and write u-boot with spl to it
 
-sudo dd if=/dev/zero of=${card} bs=1M count=1<br>
-sudo dd if=u-boot-sunxi-with-spl.bin of=${card} bs=1024 seek=8<br>
-sync<br>
+sudo dd if=/dev/zero of=${card} bs=1M count=1  
+sudo dd if=u-boot-sunxi-with-spl.bin of=${card} bs=1024 seek=8  
+sync  
 
 \# To initialize sdcard and write u-boot and sunxi spl to it
 
-sudo dd if=/dev/zero of=${card} bs=1M count=1<br>
-dd if=spl/sunxi-spl.bin of=${card} bs=1024 seek=8<br>
-dd if=u-boot.img of=${card} bs=1024 seek=40<br>
+sudo dd if=/dev/zero of=${card} bs=1M count=1  
+dd if=spl/sunxi-spl.bin of=${card} bs=1024 seek=8  
+dd if=u-boot.img of=${card} bs=1024 seek=40  
