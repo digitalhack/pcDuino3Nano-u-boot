@@ -48,14 +48,20 @@ cp u-boot.img ../output/u-boot
 \# Update with you device  
 card="/dev/sdb"  
 
-\# To initialize sdcard and write u-boot with spl to it
+\# To initialize sdcard or zero out old u-boot
 
 sudo dd if=/dev/zero of=${card} bs=1M count=1  
+
+or to keep the partition table  
+
+sudo dd if=/dev/zero of=${card} bs=1k count=1023 seek=1
+
+\# To write u-boot with spl to it
+
 sudo dd if=u-boot-sunxi-with-spl.bin of=${card} bs=1024 seek=8  
 sync  
 
-\# To initialize sdcard and write u-boot and sunxi spl to it
+\# To write u-boot and sunxi spl to it
 
-sudo dd if=/dev/zero of=${card} bs=1M count=1  
 dd if=spl/sunxi-spl.bin of=${card} bs=1024 seek=8  
 dd if=u-boot.img of=${card} bs=1024 seek=40  
