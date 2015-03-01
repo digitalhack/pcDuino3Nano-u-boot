@@ -52,7 +52,7 @@ card="/dev/sdb"
 
 sudo dd if=/dev/zero of=${card} bs=1M count=1  
 
-or to keep the partition table  
+\# Or to keep the partition table  
 
 sudo dd if=/dev/zero of=${card} bs=1k count=1023 seek=1
 
