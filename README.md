@@ -48,7 +48,7 @@ cp u-boot.img ../output/u-boot
 \# Update with you device  
 card="/dev/sdb"  
 
-\# To initialize sdcard or zero out old u-boot
+\# To initialize sdcard and zero out old u-boot
 
 sudo dd if=/dev/zero of=${card} bs=1M count=1  
 
